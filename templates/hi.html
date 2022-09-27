@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>HELLO USIS</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"/>
+    <script>
+        $(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+ }).resize();
+    </script>
+</head>
+<body>
+ {% csrf_token %}
+{# {% for items in table %}#}
+{#     {% for i in items %}#}
+{#         {{ i }}#}
+{#         {% endfor %}#}
+{# {% endfor %} }#}
+{#    {{ table }}#}
+<section>
+  <!--for demo wrap-->
+  <h1>Seat Status</h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Faculty Name</th>
+          <th>Section No</th>
+          <th>Empty Seats</th>
+          <th>Course Time</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      {% for items in table %}
+          <tr>
+          {% for i in items %}
+          <td>{{ i }}</td>
+         {% endfor %}
+          </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+</body>
+</html>

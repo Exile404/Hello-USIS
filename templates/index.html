@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play with USIS</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}"/>
+
+</head>
+<body>
+
+<div class="center">
+  <h1>HELLO USIS</h1>
+
+    {% block content %}
+  <form action="course/views" method="post">
+  {% csrf_token %}
+    <div class="inputbox">
+      <input type="text" name="email" required="required" id="1">
+      <span>USIS Email</span>
+    </div>
+    <div class="inputbox">
+      <input type="password" name="psd" required="required" id="2">
+      <span>USIS Password</span>
+    </div>
+      <div class="inputbox">
+      <input type="text" name="ayear" required="required" id="3">
+      <span>Academic Year Ex. 2022/2023 </span>
+    </div>
+      <div class="inputbox">
+      <input type="text" name="asession" required="required" id="4">
+      <span>Academic Session Ex.Fall 2022</span>
+    </div>
+      <div class="inputbox">
+      <input type="text" name="course" required="required" id="5">
+      <span>Course name Ex. CSE110/CSE111</span>
+    </div>
+    <div class="inputbox">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+    {% endblock %}
+</div>
+</body>
+</html>
